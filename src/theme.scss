@@ -1,0 +1,13 @@
+$background-grey: #eee;
+
+:export {
+  background-grey: $background-grey;
+}
+
+@mixin main-text {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 1px;
+}
