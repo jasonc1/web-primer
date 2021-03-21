@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.11",
     "react-test-renderer": "^17.0.1"
   }
 }
