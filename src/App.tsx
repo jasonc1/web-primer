@@ -3,7 +3,7 @@ import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Main from './pages/Main/Main';
 
-function App() {
+export const App = () => {
   return (
     <div>
       <HashRouter>
@@ -13,6 +13,6 @@ function App() {
       </HashRouter>
     </div>
   );
-}
+};
 
 export default App;

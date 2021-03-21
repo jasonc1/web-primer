@@ -1,13 +1,25 @@
 $background-grey: #eee;
+$primary: #11593f;
+$white: #fff;
 
 :export {
   background-grey: $background-grey;
+  primary: $primary;
+  white: $white;
 }
 
-@mixin main-text {
+@mixin header-1 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
   font-size: 24px;
   line-height: 36px;
+  letter-spacing: 1px;
+}
+
+@mixin body-text-1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
   letter-spacing: 1px;
 }
