@@ -11,9 +11,9 @@
     color: $white;
   }
   &.button__state--secondary {
-    border: 2px solid $primary;
+    border: 1px solid $primary;
     color: $primary;
-    background-color: none;
+    background-color: $white;
   }
 
   .button__text {

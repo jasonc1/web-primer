@@ -30,7 +30,7 @@ export const Main = () => {
         />
       </div>
       <div className="twelve cols">
-        <Checkbox label="test checkbox" checked={true} />
+        <Checkbox label="test checkbox" checked={false} />
       </div>
     </div>
   );

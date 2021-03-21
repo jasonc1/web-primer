@@ -1,0 +1,16 @@
+@import '../../theme.scss';
+.checkbox {
+  display: inline-flex;
+  input.checkbox--hide {
+    opacity: 0;
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    margin: 0;
+  }
+
+  .checkbox__label {
+    display: inline-flex;
+    @include body-text-1;
+  }
+}

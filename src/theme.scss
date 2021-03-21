@@ -1,11 +1,13 @@
-$background-grey: #eee;
+$grey: #eee;
 $primary: #11593f;
 $white: #fff;
+$black: #000;
 
 :export {
-  background-grey: $background-grey;
+  grey: $grey;
   primary: $primary;
   white: $white;
+  black: $black;
 }
 
 @mixin header-1 {

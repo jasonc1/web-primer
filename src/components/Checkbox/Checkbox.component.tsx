@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Checkbox.style.scss';
 import { ICheckboxProps } from './Checkbox.model';
+import CheckboxIndicator from './CheckboxIndicator/CheckboxIndicator.component';
 
 export const Checkbox = ({ label, checked }: ICheckboxProps) => {
   const [value, setValue] = useState(checked);
@@ -12,12 +13,10 @@ export const Checkbox = ({ label, checked }: ICheckboxProps) => {
   };
 
   return (
-    <div className="twelve cols">
-      <label>
-        <input type="checkbox" checked={value} onClick={onClick} />
-        {label}
-      </label>
-    </div>
+    <label className="twelve cols checkbox">
+      <CheckboxIndicator handleClick={onClick} value={value} />
+      <div className="checkbox__label">{label}</div>
+    </label>
   );
 };
 
