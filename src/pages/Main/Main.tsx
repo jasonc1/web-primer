@@ -17,12 +17,20 @@ export const Main = () => {
         <div className="row">
           <div className="two cols main__number">{number}</div>
           <div className="two cols">
-            <div className="row">
-              <Button buttonText="click me" handleClick={handleButtonClick} />
-            </div>
+            <Button buttonText="click me" handleClick={handleButtonClick} />
           </div>
-          <Checkbox label="test checkbox" checked={true} />
         </div>
+      </div>
+      <div className="twelve cols">
+        <Button
+          buttonText="click me"
+          variant="secondary"
+          handleClick={handleButtonClick}
+          marginTop={8}
+        />
+      </div>
+      <div className="twelve cols">
+        <Checkbox label="test checkbox" checked={true} />
       </div>
     </div>
   );
