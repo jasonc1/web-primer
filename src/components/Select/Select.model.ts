@@ -1,16 +1,21 @@
 import { MouseEvent } from 'react';
 
-export interface IButtonProps {
-  buttonText: string;
-  handleClick?: (e: MouseEvent) => void;
+export type selectOption = {
+  option: string;
+  value: string;
+};
+
+export interface ISelectProps {
+  options: selectOption[];
+  onChange?: (e: MouseEvent) => void;
+  defaultValue?: string;
   marginTop?: number | string;
   marginBottom?: number | string;
   marginLeft?: number | string;
   marginRight?: number | string;
-  variant?: 'primary' | 'secondary';
 }
 
-export interface IButtonStyles {
+export interface ISelectStyle {
   marginTop?: number | string;
   marginBottom?: number | string;
   marginLeft?: number | string;

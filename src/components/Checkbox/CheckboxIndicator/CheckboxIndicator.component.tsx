@@ -17,18 +17,12 @@ export const CheckboxIndicator = ({
     <>
       <input
         type="checkbox"
-        tabIndex={-1}
-        checked={value}
+        defaultChecked={value}
         onClick={handleClick}
         className="checkbox--hide"
       />
 
-      <div
-        role="checkbox"
-        tabIndex={0}
-        aria-checked={value}
-        className={indicatorClassName}
-      >
+      <div role="checkbox" aria-checked={value} className={indicatorClassName}>
         {value ? <span className="material-icons md-24">done</span> : undefined}
       </div>
     </>
