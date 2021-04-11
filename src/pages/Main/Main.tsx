@@ -6,7 +6,7 @@ import Select from '../../components/Select/Select.component';
 
 export const Main = () => {
   const [number, setNumber] = useState(0);
-  const [selectValue, setSelect] = useState();
+  const [selectValue, setSelect] = useState("");
   console.log(selectValue);
 
   const handleButtonClick = () => {
@@ -14,8 +14,10 @@ export const Main = () => {
     setNumber(num);
   };
 
-  const handleSelect = (e) => {
-    setSelect(e.target.value);
+  const handleSelect = (e: React.FormEvent<HTMLSelectElement>) => {
+    const target = e.target as HTMLTextAreaElement;
+
+    setSelect(target.value);
   };
 
   const options = [

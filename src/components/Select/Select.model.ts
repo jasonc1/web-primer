@@ -7,7 +7,7 @@ export type selectOption = {
 
 export interface ISelectProps {
   options: selectOption[];
-  onChange?: (e: MouseEvent) => void;
+  onChange?: (e: React.FormEvent<HTMLSelectElement>) => void;
   defaultValue?: string;
   marginTop?: number | string;
   marginBottom?: number | string;
