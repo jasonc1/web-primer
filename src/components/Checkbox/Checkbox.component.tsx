@@ -6,6 +6,8 @@ import CheckboxIndicator from './CheckboxIndicator/CheckboxIndicator.component';
 export const Checkbox = ({
   label,
   checked,
+  handleClick,
+  id,
   marginTop,
   marginRight,
   marginBottom,
@@ -19,15 +21,14 @@ export const Checkbox = ({
   };
   const [value, setValue] = useState(checked);
 
-  const handleClick = () => {
-    // state should be handled outside of the component, too lazy to update this.
-    const newValue = !value;
-    setValue(newValue);
+  const defaultHandler = () => {
+    if(handleClick) {handleClick(id)};
+    setValue(!value);
   };
 
   return (
     <label className="twelve cols checkbox" style={checkboxStyle}>
-      <CheckboxIndicator handleClick={handleClick} value={value} />
+      <CheckboxIndicator handleClick={defaultHandler} value={value} />
       <div className="checkbox__label">{label}</div>
     </label>
   );

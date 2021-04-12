@@ -1,0 +1,13 @@
+@import "../../theme.scss";
+
+.textInput__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+  .textInput__input {
+    height: 56px;
+    padding: 16px 16px;
+    border-radius: 4px;
+    @include body-text-1;
+  }
+}

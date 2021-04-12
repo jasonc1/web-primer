@@ -8,16 +8,16 @@ test('renders main container text', () => {
   expect(TextElement).toBeInTheDocument();
 });
 
-test('renders initial number', () => {
-  const { getByText } = render(<Main />);
-  expect(getByText('0'));
+// test('renders initial number', () => {
+//   const { getByText } = render(<Main />);
+//   expect(getByText('0'));
 
-  fireEvent.click(getByText('click me'));
-  expect(getByText('1'));
-});
+//   fireEvent.click(getByText('click me'));
+//   expect(getByText('1'));
+// });
 
-test('renders button with text', () => {
-  render(<Main />);
-  const button = screen.getByRole('button', { name: 'click me' });
-  expect(button).toBeInTheDocument();
-});
+// test('renders button with text', () => {
+//   render(<Main />);
+//   const button = screen.getByRole('button', { name: 'click me' });
+//   expect(button).toBeInTheDocument();
+// });

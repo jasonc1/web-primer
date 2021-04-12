@@ -1,4 +1,4 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .main {
   padding: 16px 24px;
@@ -7,4 +7,12 @@
   border-radius: 8px;
   background-color: $white;
   @include header-1;
+
+  .main__todoInput {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .completed__text {
+    @include body-text-1;
+  }
 }

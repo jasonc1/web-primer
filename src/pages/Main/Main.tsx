@@ -1,68 +1,85 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './Main.style.scss';
 import Checkbox from '../../components/Checkbox/Checkbox.component';
 import Button from '../../components/Button/Button.component';
-import Select from '../../components/Select/Select.component';
+import TextInput from '../../components/TextInput/TextInput.component';
+
+interface todoObject {
+  value: string;
+  id: string;
+}
 
 export const Main = () => {
-  const [number, setNumber] = useState(0);
-  const [selectValue, setSelect] = useState("");
-  console.log(selectValue);
+  const [todos, setTodos] = useState([] as todoObject[]);
+  const [completed, setCompleted] = useState([] as todoObject[]);
+  const [todoValue, setTodoValue] = useState();
 
-  const handleButtonClick = () => {
-    const num = number + 1;
-    setNumber(num);
-  };
+  const handleTodoInput = (e) => {
+    setTodoValue(e.target.value);
+  }
 
-  const handleSelect = (e: React.FormEvent<HTMLSelectElement>) => {
-    const target = e.target as HTMLTextAreaElement;
+  const handleAddTodo = () => {
+    setTodos(prevState => ([...prevState, {value: todoValue, id: uuidv4()}]));
+    setTodoValue(""); // reset textInput value
+  }
 
-    setSelect(target.value);
-  };
+  const handleCheckboxClick = (id) => {
+    const result = [...todos];
+    let completedItem;
+    todos.forEach((todo, index) => {
+      if (id === todo.id) {
+        completedItem = todo;
+        result.splice(index, 1);
+      }
+    })
 
-  const options = [
-    {
-      option: 'banana',
-      value: 'banana',
-    },
-    {
-      option: 'dragon',
-      value: 'dragon',
-    },
-    {
-      option: 'motorcycle',
-      value: 'motorcycle',
-    },
-  ];
+    setCompleted(prevState => ([...prevState, completedItem]));
+    setTodos(result);
+  }
+
+  const memoHandleCheckboxClick = useCallback(handleCheckboxClick, [todos])
+
+
+  const renderItems = () => {
+    return todos.map(todo => ( 
+      <div className="twelve cols">
+        <Checkbox label={todo.value} key={todo.id} checked={false} marginTop={8} id={todo.id} handleClick={memoHandleCheckboxClick}/>
+      </div>))
+  }
+  
+  const renderCompleted = () => {
+    const none = (<div className="twelve cols completed__text">No completed items</div>);
+    if (completed.length === 0) {
+      return none;
+    } 
+    return completed.map(completedItem => (<div className="twelve cols">
+    <Checkbox label={completedItem.value} key={completedItem.id} checked={true} marginTop={8} id={completedItem.id} handleClick={handleCheckboxClick}/>
+  </div>))
+  }
+  
+
   return (
     <div className="row container main">
-      <div className="twelve cols main__title">Main app container</div>
+      <div className="twelve cols main__title">Todo List</div>
       <div className="twelve cols">
-        <div className="row">
-          <div className="two cols main__number">{number}</div>
-          <div className="two cols">
-            <Button buttonText="click me" handleClick={handleButtonClick} />
+        <div className="row main__todoInput">
+          <div className="eleven cols">
+            <TextInput handleChange={handleTodoInput} value={todoValue} />
           </div>
-
-          <div className="two cols">
-            <Select options={options} onChange={handleSelect} />
+          <div className="one col">
+            <Button buttonText="Add item" handleClick={handleAddTodo} />
           </div>
         </div>
       </div>
-      <div className="six cols">
-        <Button
-          buttonText="another action"
-          variant="secondary"
-          handleClick={handleButtonClick}
-          marginTop={8}
-        />
+
+      {renderItems()}
+
+      <div className="twelve cols main__completed">
+        Completed Items
       </div>
-      <div className="twelve cols">
-        <Checkbox label="test checkbox" checked={false} marginTop={8} />
-      </div>
-      <div className="six cols">
-        <Select options={options} onChange={handleSelect} marginTop={8} />
-      </div>
+      {renderCompleted()}
+
     </div>
   );
 };

@@ -1,20 +1,14 @@
 
-export type selectOption = {
-  option: string;
-  value: string;
-};
-
-export interface ISelectProps {
-  options: selectOption[];
-  onChange?: (e: React.FormEvent<HTMLSelectElement>) => void;
-  defaultValue?: string;
+export interface ITextInputProps {
+  handleChange?: (e: React.FormEvent<HTMLInputElement>) => void;
   marginTop?: number | string;
   marginBottom?: number | string;
   marginLeft?: number | string;
   marginRight?: number | string;
+  value: string;
 }
 
-export interface ISelectStyle {
+export interface ITextInputStyles {
   marginTop?: number | string;
   marginBottom?: number | string;
   marginLeft?: number | string;
