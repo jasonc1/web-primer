@@ -51,7 +51,7 @@ export const Modal = (props) => {
   // make sure window behind modal can't be scrolled
   // make modal full screen on mobile. have modal come from bottom to top
 
-
+  // ========== WHAT WAS DONE IN THE INTERVIEW ==========
   // const [isLoading, setisLoading] = useState(false);
 
   // const handleButtonYes = async() => {
